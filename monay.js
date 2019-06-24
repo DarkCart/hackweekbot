@@ -18,11 +18,11 @@ run: function(message) {
 			return ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬'].includes(reaction.emoji.name) && user.id === message.author.id;
 		};
 		
-		message.awaitReactions(filter, {time: 60000})
+		message.awaitReactions(filter, {time: 5000})
 			.then(collected => {
 				message.channel.send (collected.size + " reactions collected");
 			})
-			.catch(console.error);
+			.catch(message.channel.send(err.toString()));
 	}
 }
 }
