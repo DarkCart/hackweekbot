@@ -15,14 +15,14 @@ run: function(message) {
 		});
 		//awaiting reactions
 		var filter = (reaction) => {
-			return ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬'].includes(reaction.emoji.name) && user.id === message.author.id;
+			return ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬'].includes(reaction.emoji.name);
 		};
 		
-		message.awaitReactions(filter, {time: 5000})
+		message.awaitReactions(filter, {time: 60000})
 			.then(collected => {
 				message.channel.send (collected.size + " reactions collected");
 			})
-			.catch(message.channel.send(err.toString()));
+		.catch(console.error);
 	}
 }
 }
