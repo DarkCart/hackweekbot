@@ -6,7 +6,11 @@ run: function(message) {
 			.then((msg) => {
 				msg.react('🇦')
 					.then(() => msg.react('🇧'))
-					.then(() => msg.react('🇨'));
+					.then(() => msg.react('🇨'))
+					.then(() => msg.react('🇩'))
+					.then(() => msg.react('🇪'))
+					.then(() => msg.react('🇫'))
+					.then(() => msg.react('🇬'));
 			});
 	}
 }
