@@ -1,3 +1,5 @@
+var i = 0;
+
 module.exports = {
 run: function(message) {
 	if (message.content === "!ping") {
@@ -5,7 +7,10 @@ run: function(message) {
 	}
 	if (message.content === "!test") {
 		message.channel.send("test").then((msg)=>{
-			msg.edit("test2");
+			setInterval(function() {
+				msg.edit("test" + i);
+				i++;
+			}, 500);
 		});
 	}
 }
