@@ -4,7 +4,7 @@ run: function(message) {
 		message.channel.send("pong");
 	}
 	if (message.content === "!test") {
-		message.content.send("test").then((msg)=>{
+		message.channel.send("test").then((msg)=>{
 			msg.edit("test2");
 		});
 	}
