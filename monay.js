@@ -18,9 +18,10 @@ run: function(message) {
 				return ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬'].includes(reaction.emoji.name);
 			};
 		
-			msg.awaitReactions(filter, {time: 15000})
+			msg.awaitReactions(filter, {time: 5000})
 				.then(collected => {
-					message.channel.send (collected.size + " reactions collected");
+					message.channel.send(collected.size + " reactions collected");
+					message.channel.send(collected.toString());
 				})
 			.catch(console.error);
 		});
