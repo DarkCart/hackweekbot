@@ -12,17 +12,18 @@ run: function(message) {
 				.then(() => msg.react('🇪'))
 				.then(() => msg.react('🇫'))
 				.then(() => msg.react('🇬'));
-		});
-		//awaiting reactions
-		var filter = (reaction) => {
-			return ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬'].includes(reaction.emoji.name);
-		};
+				
+			//awaiting reactions
+			var filter = (reaction) => {
+				return ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬'].includes(reaction.emoji.name);
+			};
 		
-		msg.awaitReactions(filter, {time: 15000})
-			.then(collected => {
-				message.channel.send (collected.size + " reactions collected");
-			})
-		.catch(console.error);
+			msg.awaitReactions(filter, {time: 15000})
+				.then(collected => {
+					message.channel.send (collected.size + " reactions collected");
+				})
+			.catch(console.error);
+		});
 	}
 }
 }
